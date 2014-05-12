@@ -3,8 +3,8 @@
 %global pkg_name optparse-applicative
 
 Name:           ghc-%{pkg_name}
-Version:        0.8.0.1
-Release:        2%{?dist}
+Version:        0.8.1
+Release:        1%{?dist}
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD
@@ -68,7 +68,10 @@ files.
 
 
 %changelog
-* Mon May  5 2014 Jens Petersen <petersen@redhat.com> - 0.8.0.1-2
+* Mon May 12 2014 Ricky Elrod <rleord@redhat.com> - 0.8.1-1
+- Latest upstream release.
+
+* Mon May 5 2014 Jens Petersen <petersen@redhat.com> - 0.8.0.1-2
 - add comment about testsuite requiring test-framework
 
 * Thu Apr 10 2014 Fedora Haskell SIG <haskell@lists.fedoraproject.org> - 0.8.0.1-1
