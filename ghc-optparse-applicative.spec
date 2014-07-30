@@ -17,6 +17,7 @@ BuildRequires:  ghc-rpm-macros
 BuildRequires:  ghc-ansi-wl-pprint-devel
 BuildRequires:  ghc-process-devel
 BuildRequires:  ghc-transformers-devel
+BuildRequires:  ghc-transformers-compat-devel
 # End cabal-rpm deps
 
 %description
