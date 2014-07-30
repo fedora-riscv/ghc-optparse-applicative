@@ -3,8 +3,8 @@
 %global pkg_name optparse-applicative
 
 Name:           ghc-%{pkg_name}
-Version:        0.8.1
-Release:        2%{?dist}
+Version:        0.9.0
+Release:        1%{?dist}
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD
@@ -68,6 +68,9 @@ files.
 
 
 %changelog
+* Wed Jul 30 2014 Ricky Elrod <relrod@redhat.com> - 0.9.0-1
+- Latest upstream release.
+
 * Tue Jul  8 2014 Jens Petersen <petersen@redhat.com> - 0.8.1-2
 - F21 rebuild
 
