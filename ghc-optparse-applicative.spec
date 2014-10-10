@@ -6,7 +6,7 @@
 %global debug_package %{nil}
 
 Name:           ghc-%{pkg_name}
-Version:        0.10.0
+Version:        0.11.0.1
 Release:        1%{?dist}
 Summary:        Utilities and combinators for parsing command line options
 
@@ -72,6 +72,9 @@ files.
 
 
 %changelog
+* Fri Oct 10 2014 Ricky Elrod <relrod@redhat.com> - 0.11.0.1-1
+- Latest upstream release.
+
 * Tue Sep 23 2014 Ricky Elrod <relrod@redhat.com> - 0.10.0-1
 - Latest upstream release.
 
