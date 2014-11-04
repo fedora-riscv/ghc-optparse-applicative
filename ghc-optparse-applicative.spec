@@ -7,7 +7,7 @@
 
 Name:           ghc-%{pkg_name}
 Version:        0.11.0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD
@@ -22,6 +22,8 @@ BuildRequires:  ghc-process-devel
 BuildRequires:  ghc-transformers-devel
 BuildRequires:  ghc-transformers-compat-devel
 # End cabal-rpm deps
+
+ExclusiveArch:  %{ghc_arches_with_ghci}
 
 %description
 Utilities and combinators for parsing command line options.
@@ -72,6 +74,9 @@ files.
 
 
 %changelog
+* Tue Nov  4 2014 Ricky Elrod <relrod@redhat.com> - 0.11.0.1-2
+- Add ExclusiveArch for GHCi dependency
+
 * Fri Oct 10 2014 Ricky Elrod <relrod@redhat.com> - 0.11.0.1-1
 - Latest upstream release.
 
