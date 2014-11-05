@@ -7,23 +7,22 @@
 
 Name:           ghc-%{pkg_name}
 Version:        0.11.0.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD
 URL:            http://hackage.haskell.org/package/%{pkg_name}
 Source0:        http://hackage.haskell.org/package/%{pkg_name}-%{version}/%{pkg_name}-%{version}.tar.gz
+Patch0:         optparse-applicative-remove-ANN.patch
 
 BuildRequires:  ghc-Cabal-devel
 BuildRequires:  ghc-rpm-macros
 # Begin cabal-rpm deps:
 BuildRequires:  ghc-ansi-wl-pprint-devel
 BuildRequires:  ghc-process-devel
-BuildRequires:  ghc-transformers-devel
 BuildRequires:  ghc-transformers-compat-devel
+BuildRequires:  ghc-transformers-devel
 # End cabal-rpm deps
-
-ExclusiveArch:  %{ghc_arches_with_ghci}
 
 %description
 Utilities and combinators for parsing command line options.
@@ -43,6 +42,9 @@ files.
 
 %prep
 %setup -q -n %{pkg_name}-%{version}
+%ifnarch %{ghc_arches_with_ghci}
+%patch0 -p1 -b .orig
+%endif
 
 
 %build
@@ -74,6 +76,9 @@ files.
 
 
 %changelog
+* Wed Nov  5 2014 Jens Petersen <petersen@redhat.com> - 0.11.0.1-3
+- disable hlint Annotations on archs without ghci
+
 * Tue Nov  4 2014 Ricky Elrod <relrod@redhat.com> - 0.11.0.1-2
 - Add ExclusiveArch for GHCi dependency
 
