@@ -7,7 +7,7 @@
 
 Name:           ghc-%{pkg_name}
 Version:        0.11.0.1
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD
@@ -76,6 +76,9 @@ files.
 
 
 %changelog
+* Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.11.0.1-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
 * Wed Nov  5 2014 Jens Petersen <petersen@redhat.com> - 0.11.0.1-3
 - disable hlint Annotations on archs without ghci
 
