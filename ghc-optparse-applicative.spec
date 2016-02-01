@@ -2,14 +2,18 @@
 
 %global pkg_name optparse-applicative
 
+# no useful debuginfo for Haskell packages without C sources
+%global debug_package %{nil}
+
 Name:           ghc-%{pkg_name}
-Version:        0.11.0.2
-Release:        1%{?dist}
+Version:        0.11.0.1
+Release:        4%{?dist}
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD
-Url:            https://hackage.haskell.org/package/%{pkg_name}
-Source0:        https://hackage.haskell.org/package/%{pkg_name}-%{version}/%{pkg_name}-%{version}.tar.gz
+URL:            http://hackage.haskell.org/package/%{pkg_name}
+Source0:        http://hackage.haskell.org/package/%{pkg_name}-%{version}/%{pkg_name}-%{version}.tar.gz
+Patch0:         optparse-applicative-remove-ANN.patch
 
 BuildRequires:  ghc-Cabal-devel
 BuildRequires:  ghc-rpm-macros
@@ -38,6 +42,9 @@ files.
 
 %prep
 %setup -q -n %{pkg_name}-%{version}
+%ifnarch %{ghc_arches_with_ghci}
+%patch0 -p1 -b .orig
+%endif
 
 
 %build
@@ -47,7 +54,9 @@ files.
 %install
 %ghc_lib_install
 
-rm %{buildroot}%{ghc_pkgdocdir}/LICENSE
+
+%check
+# test-suite requires test-framework*
 
 
 %post devel
@@ -59,7 +68,7 @@ rm %{buildroot}%{ghc_pkgdocdir}/LICENSE
 
 
 %files -f %{name}.files
-%license LICENSE
+%doc LICENSE
 
 
 %files devel -f %{name}-devel.files
@@ -67,9 +76,6 @@ rm %{buildroot}%{ghc_pkgdocdir}/LICENSE
 
 
 %changelog
-* Wed Sep 30 2015 Jens Petersen <petersen@redhat.com> - 0.11.0.2-1
-- update to 0.11.0.2
-
 * Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.11.0.1-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
