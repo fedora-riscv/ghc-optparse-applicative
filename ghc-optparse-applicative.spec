@@ -13,7 +13,6 @@ Summary:        Utilities and combinators for parsing command line options
 License:        BSD
 URL:            http://hackage.haskell.org/package/%{pkg_name}
 Source0:        http://hackage.haskell.org/package/%{pkg_name}-%{version}/%{pkg_name}-%{version}.tar.gz
-Patch0:         optparse-applicative-remove-ANN.patch
 
 BuildRequires:  ghc-Cabal-devel
 BuildRequires:  ghc-rpm-macros
@@ -42,9 +41,6 @@ files.
 
 %prep
 %setup -q -n %{pkg_name}-%{version}
-%ifnarch %{ghc_arches_with_ghci}
-%patch0 -p1 -b .orig
-%endif
 
 
 %build
