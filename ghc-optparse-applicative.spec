@@ -48,8 +48,6 @@ files.
 %install
 %ghc_lib_install
 
-rm %{buildroot}%{ghc_pkgdocdir}/LICENSE
-
 
 %post devel
 %ghc_pkg_recache
