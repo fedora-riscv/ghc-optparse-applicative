@@ -62,12 +62,6 @@ files.
 %cabal_test
 
 
-%post -p /sbin/ldconfig
-
-
-%postun -p /sbin/ldconfig
-
-
 %post devel
 %ghc_pkg_recache
 
