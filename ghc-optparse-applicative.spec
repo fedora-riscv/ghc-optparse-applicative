@@ -8,7 +8,7 @@
 
 Name:           ghc-%{pkg_name}
 Version:        0.14.0.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD
@@ -79,6 +79,9 @@ files.
 
 
 %changelog
+* Fri Jul 13 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.14.0.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.14.0.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
