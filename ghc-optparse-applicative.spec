@@ -7,8 +7,8 @@
 %bcond_without tests
 
 Name:           ghc-%{pkg_name}
-Version:        0.14.2.0
-Release:        3%{?dist}
+Version:        0.14.3.0
+Release:        1%{?dist}
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD
@@ -89,6 +89,9 @@ files.
 
 
 %changelog
+* Thu Feb 21 2019 Jens Petersen <petersen@redhat.com> - 0.14.3.0-1
+- update to 0.14.3.0
+
 * Sun Feb 17 2019 Jens Petersen <petersen@redhat.com> - 0.14.2.0-3
 - refresh to cabal-rpm-0.13
 
