@@ -7,15 +7,14 @@
 %bcond_without tests
 
 Name:           ghc-%{pkg_name}
-Version:        0.15.1.0
-Release:        5%{?dist}
+Version:        0.16.1.0
+Release:        1%{?dist}
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD
 Url:            https://hackage.haskell.org/package/%{pkg_name}
 # Begin cabal-rpm sources:
 Source0:        https://hackage.haskell.org/package/%{pkgver}/%{pkgver}.tar.gz
-Source1:        https://hackage.haskell.org/package/%{pkgver}/%{pkg_name}.cabal#/%{pkgver}.cabal
 # End cabal-rpm sources
 
 # Begin cabal-rpm deps:
@@ -28,12 +27,21 @@ BuildRequires:  ghc-transformers-prof
 BuildRequires:  ghc-transformers-compat-prof
 %if %{with tests}
 BuildRequires:  ghc-QuickCheck-devel
-BuildRequires:  ghc-bytestring-devel
 %endif
 # End cabal-rpm deps
 
 %description
-Utilities and combinators for parsing command line options.
+Optparse-applicative is a haskell library for parsing options on the command
+line, and providing a powerful applicative interface for composing them.
+
+optparse-applicative takes care of reading and validating the arguments passed
+to the command line, handling and reporting errors, generating a usage line, a
+comprehensive help screen, and enabling context-sensitive bash, zsh, and fish
+completions.
+
+See the included README for detailed instructions and examples, which is also
+available on github <https://github.com/pcapriotti/optparse-applicative>.
+
 
 %package devel
 Summary:        Haskell %{pkg_name} library development files
@@ -75,7 +83,6 @@ This package provides the Haskell %{pkg_name} profiling library.
 %prep
 # Begin cabal-rpm setup:
 %setup -q -n %{pkgver}
-cp -bp %{SOURCE1} %{pkg_name}.cabal
 # End cabal-rpm setup
 
 
@@ -119,6 +126,9 @@ cp -bp %{SOURCE1} %{pkg_name}.cabal
 
 
 %changelog
+* Thu Aug  5 2021 Jens Petersen <petersen@redhat.com> - 0.16.1.0-1
+- update to 0.16.1.0
+
 * Thu Jul 22 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.15.1.0-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
 
