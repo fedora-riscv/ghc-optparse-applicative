@@ -8,7 +8,7 @@
 
 Name:           ghc-%{pkg_name}
 Version:        0.15.1.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD
@@ -116,6 +116,9 @@ cp -bp %{SOURCE1} %{pkg_name}.cabal
 
 
 %changelog
+* Thu Jul 22 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.15.1.0-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
+
 * Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.15.1.0-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
