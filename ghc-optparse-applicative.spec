@@ -8,7 +8,7 @@
 
 Name:           ghc-%{pkg_name}
 Version:        0.16.1.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD
@@ -129,6 +129,9 @@ dos2unix -k -n %{SOURCE1} %{pkg_name}.cabal
 
 
 %changelog
+* Fri Jun 17 2022 Jens Petersen <petersen@redhat.com> - 0.16.1.0-3
+- rebuild
+
 * Thu Jan 20 2022 Fedora Release Engineering <releng@fedoraproject.org> - 0.16.1.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
