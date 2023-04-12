@@ -4,11 +4,16 @@
 %global pkg_name optparse-applicative
 %global pkgver %{pkg_name}-%{version}
 
+%ifnarch riscv64
 %bcond_without tests
+%else
+%global with_ghc_prof 0
+%bcond_without tests
+%endif
 
 Name:           ghc-%{pkg_name}
 Version:        0.17.0.0
-Release:        %autorelease
+Release:        %autorelease -e 0.riscv64
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD-3-Clause
