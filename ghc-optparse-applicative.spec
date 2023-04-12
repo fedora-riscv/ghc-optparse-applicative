@@ -7,13 +7,12 @@
 %ifnarch riscv64
 %bcond_without tests
 %else
-%global with_ghc_prof 0
 %bcond_without tests
 %endif
 
 Name:           ghc-%{pkg_name}
 Version:        0.17.0.0
-Release:        %autorelease -e 0.riscv64
+Release:        %autorelease -e 1.riscv64
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD-3-Clause
@@ -21,6 +20,8 @@ Url:            https://hackage.haskell.org/package/%{pkg_name}
 # Begin cabal-rpm sources:
 Source0:        https://hackage.haskell.org/package/%{pkgver}/%{pkgver}.tar.gz
 # End cabal-rpm sources
+
+Patch0: disable-tests.patch
 
 # Begin cabal-rpm deps:
 BuildRequires:  ghc-Cabal-devel
@@ -95,6 +96,7 @@ This package provides the Haskell %{pkg_name} profiling library.
 %prep
 # Begin cabal-rpm setup:
 %setup -q -n %{pkgver}
+%patch -P0 -p1
 # End cabal-rpm setup
 
 
