@@ -12,7 +12,7 @@
 
 Name:           ghc-%{pkg_name}
 Version:        0.17.0.0
-Release:        %autorelease -e 1.riscv64
+Release:        %autorelease -e 1.riscv64 -e rvre0
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD-3-Clause
