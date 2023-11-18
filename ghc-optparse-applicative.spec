@@ -4,11 +4,15 @@
 %global pkg_name optparse-applicative
 %global pkgver %{pkg_name}-%{version}
 
+%ifnarch riscv64
 %bcond_without tests
+%else
+%bcond_with tests
+%endif
 
 Name:           ghc-%{pkg_name}
 Version:        0.17.1.0
-Release:        %autorelease
+Release:        %autorelease -e 0.riscv64
 Summary:        Utilities and combinators for parsing command line options
 
 License:        BSD-3-Clause
@@ -16,6 +20,8 @@ Url:            https://hackage.haskell.org/package/%{pkg_name}
 # Begin cabal-rpm sources:
 Source0:        https://hackage.haskell.org/package/%{pkgver}/%{pkgver}.tar.gz
 # End cabal-rpm sources
+
+Patch0: remove-tests.patch
 
 # Begin cabal-rpm deps:
 BuildRequires:  ghc-Cabal-devel
@@ -90,6 +96,9 @@ This package provides the Haskell %{pkg_name} profiling library.
 %prep
 # Begin cabal-rpm setup:
 %setup -q -n %{pkgver}
+%ifarch riscv64
+%patch -P0 -p1
+%endif
 # End cabal-rpm setup
 
 
